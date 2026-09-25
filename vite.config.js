@@ -13,17 +13,17 @@ export default defineConfig({
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:4000',
+        target: 'saddlebrown-ape-891436.hostingersite.com',
         changeOrigin: true,
         secure: false,
       },
       '/t': {
-        target: 'http://localhost:4000',
+        target: 'saddlebrown-ape-891436.hostingersite.com',
         changeOrigin: true,
         secure: false,
       },
       '/unsubscribe': {
-        target: 'http://localhost:4000',
+        target: 'saddlebrown-ape-891436.hostingersite.com',
         changeOrigin: true,
         secure: false,
       }

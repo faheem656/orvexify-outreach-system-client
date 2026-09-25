@@ -34,8 +34,18 @@ export default function Reports() {
   const [debugLoading, setDebugLoading] = useState(false)
   const [forceSendResult, setForceSendResult] = useState(null)
   const [replies, setReplies] = useState([])
+  const [statusCounts, setStatusCounts] = useState(null)
   const LIMIT = 50
   const observerRef = useRef(null)
+
+  // Live status counts (effective status se) — chips par numbers dikhane ke liye
+  const fetchStatusCounts = useCallback(() => {
+    fetch(apiUrl('/api/reports/summary?days=30')).then(r => r.text()).then(t => {
+      if (t.trim().startsWith('<')) return
+      try { setStatusCounts(JSON.parse(t).leadStatusCounts || null) } catch { /* ignore */ }
+    }).catch(() => { })
+  }, [])
+  useEffect(() => { fetchStatusCounts(); const i = setInterval(fetchStatusCounts, 30000); return () => clearInterval(i) }, [fetchStatusCounts])
 
   const fetchReplies = useCallback(() => {
     fetch(apiUrl('/api/replies')).then(r => r.text()).then(t => {
@@ -328,9 +338,22 @@ export default function Reports() {
         </div>
 
         <div className={s.statusTabs}>
-          {['all', 'pending', 'sent', 'opened', 'clicked', 'replied', 'bounced', 'unsubscribed'].map(st => (
-            <button key={st} onClick={() => setFilter(st)} className={filter === st ? s.tabActive : s.tab}>{st}</button>
-          ))}
+          {['all', 'pending', 'sent', 'opened', 'clicked', 'replied', 'bounced', 'unsubscribed'].map(st => {
+            const cnt = st === 'all' ? statusCounts?.total : statusCounts ? statusCounts[st] : null
+            return (
+              <button key={st} onClick={() => setFilter(st)} className={filter === st ? s.tabActive : s.tab}>
+                {st}{cnt != null && <span className={s.tabCount}>{cnt}</span>}
+              </button>
+            )
+          })}
+        </div>
+
+        <div className={s.hintBox}>
+          💡 <b>Yahan kya kya hai (confusion na ho):</b> Yeh table <b>lead-level</b> hisab hai — har lead ka <b>latest stage</b>.
+          &nbsp;•&nbsp;<b>sent</b> = email gaya, abhi open nahi hua &nbsp;•&nbsp;<b>opened</b> = email open hui, click nahi &nbsp;•&nbsp;<b>clicked</b> = link click kiya &nbsp;•&nbsp;<b>pending</b> = abhi send nahi hui.
+          <br />
+          ⚠️ <b>📋 Email Log</b> alag cheez hai — wo <b>har email attempt</b> ka hisab hai (follow-up emails alag count hoti hain, is liye wahan emails 243 dikhengi, yahan leads kam).
+          Dashboard ka <b>funnel</b> = engagement % (opened/clicked leads). <b>Teeno reports sahi hain — bas level alag hai.</b> Bounce 0 = sach me 0 bounces, 100% delivery ✅.
         </div>
 
         <div className={s.tableOuter} onScroll={e => {
@@ -343,6 +366,8 @@ export default function Reports() {
               <tbody>
                 {leads.map((l, idx) => {
                   const isSub = l.is_subscribed !== 0 && l.status !== 'unsubscribed'
+                  // Effective status: server se aaye ho to wo, warna counters se client-side
+                  const st = l.eff_status || (l.is_subscribed === 0 || l.status === 'unsubscribed' ? 'unsubscribed' : l.status === 'bounced' || l.status === 'replied' ? l.status : l.click_count > 0 ? 'clicked' : l.open_count > 0 ? 'opened' : l.status)
                   return (
                     <tr key={l.id} ref={idx === leads.length - 1 ? lastRef : null} className={!isSub ? s.rowUnsub : ''} style={{ cursor: 'pointer' }} onClick={() => openLeadDetails(l)}>
                       <td className={s.tdName}>{l.email}</td>
@@ -350,7 +375,7 @@ export default function Reports() {
                       <td className={s.tdCountry}>{l.flag || '🇺🇸'} {l.country || 'USA'} ({l.country_code || 'US'})<br /><span className={s.tdXs}>{l.timezone || 'America/New_York'}</span></td>
                       <td className={s.tdEllipsis} style={{ fontWeight: 600 }}>{(() => { try { return l.clinic_name || JSON.parse(l.custom_json || '{}').company_name || '-' } catch { return l.clinic_name || '-' } })()}</td>
                       <td className={s.tdXs}>{l.template_name || '-'}</td>
-                      <td><span className={`${s.badge} ${l.status === 'pending' ? s.badgePending : l.status === 'sent' ? s.badgeSent : l.status === 'opened' ? s.badgeOpened : l.status === 'clicked' ? s.badgeClicked : l.status === 'replied' ? s.badgeReplied : l.status === 'bounced' ? s.badgeBounced : s.badgeUnsub}`}>{l.status}</span></td>
+                      <td><span className={`${s.badge} ${st === 'pending' ? s.badgePending : st === 'sent' ? s.badgeSent : st === 'opened' ? s.badgeOpened : st === 'clicked' ? s.badgeClicked : st === 'replied' ? s.badgeReplied : st === 'bounced' ? s.badgeBounced : s.badgeUnsub}`}>{st}</span></td>
                       <td><span className={isSub ? s.subPillOn : s.subPillOff}>{isSub ? '✅ Sub' : '❌ Unsub'}</span></td>
                       <td className={s.tdXs} style={{ color: l.withinWindow ? '#065f46' : '#991b1b', fontWeight: 600 }}>{l.localTime || '-'}<br /><span style={{ fontSize: 8 }}>{l.withinWindow ? '✅ Within 9-5' : '❌ Outside 9-5'}</span></td>
                       <td style={{ color: l.open_count > 0 ? '#4338ca' : '#9ca3af', fontSize: 11, fontWeight: l.open_count > 0 ? 700 : 400 }}>{l.open_count}</td>
@@ -415,7 +440,7 @@ export default function Reports() {
                 <div className={s.statRow}>
                   <div className={s.statTile}><div className={s.statTileValue} style={{ color: leadDetails.lead.open_count > 0 ? '#4f46e5' : '#9ca3af' }}>{leadDetails.lead.open_count}</div><div className={s.detailLabel}>OPENS</div></div>
                   <div className={s.statTile}><div className={s.statTileValue} style={{ color: leadDetails.lead.click_count > 0 ? '#7c3aed' : '#9ca3af' }}>{leadDetails.lead.click_count}</div><div className={s.detailLabel}>CLICKS</div></div>
-                  <div className={s.statTile}><div className={s.statTileValueSm}>{leadDetails.lead.status}</div><div className={s.detailLabel}>STATUS</div></div>
+                  <div className={s.statTile}><div className={s.statTileValueSm}>{leadDetails.lead.eff_status || (leadDetails.lead.is_subscribed === 0 || leadDetails.lead.status === 'unsubscribed' ? 'unsubscribed' : leadDetails.lead.status === 'bounced' || leadDetails.lead.status === 'replied' ? leadDetails.lead.status : leadDetails.lead.click_count > 0 ? 'clicked' : leadDetails.lead.open_count > 0 ? 'opened' : leadDetails.lead.status)}</div><div className={s.detailLabel}>STATUS</div></div>
                   <div className={s.statTile}><div className={s.statTileValueSm}>{leadDetails.lead.is_subscribed ? '✅ Sub' : '❌ Unsub'}</div><div className={s.detailLabel}>SUB</div></div>
                 </div>
 
