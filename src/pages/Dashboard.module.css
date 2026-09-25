@@ -1,0 +1,68 @@
+.wrap{display:grid; gap:16px}
+.pageHead{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.pageTitle{font-size:20px; font-weight:800}
+.pageSub{font-size:12px; color:var(--text-2); margin-top:2px}
+.actions{display:flex; gap:8px; flex-wrap:wrap}
+
+.btnGreen{padding:9px 14px; border-radius:9px; border:none; background:#065f46; color:white; font-weight:700; font-size:12px; cursor:pointer}
+.btnGreen:hover{background:#047857}
+.btnRed{padding:9px 14px; border-radius:9px; border:none; background:#dc2626; color:white; font-weight:700; font-size:12px; cursor:pointer}
+.btnRed:hover{background:#b91c1c}
+.btnOrange{padding:9px 14px; border-radius:9px; border:none; background:#ea580c; color:white; font-weight:700; font-size:12px; cursor:pointer}
+.btnOrange:hover{background:#c2410c}
+.btnPurple{padding:9px 14px; border-radius:9px; border:none; background:#7c3aed; color:white; font-weight:700; font-size:12px; cursor:pointer}
+.btnPurple:hover{background:#6d28d9}
+.btnGhost{padding:7px 12px; border-radius:9px; border:1px solid var(--border); background:white; font-weight:600; font-size:12px; cursor:pointer; color:var(--text-2)}
+.btnGhost:hover{background:#f9fafb}
+
+.cronStrip{border-radius:14px; padding:14px 18px; border:1px solid}
+.cronOk{background:#dcfce7; border-color:#86efac}
+.cronBad{background:#fee2e2; border-color:#fecaca}
+.cronMeta{font-size:11px; margin-top:5px; color:#374151; line-height:1.6}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px}
+.statCard{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; box-shadow:var(--shadow)}
+.statLabel{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--text-3)}
+.statValue{font-size:26px; font-weight:800; margin-top:6px}
+.statValueSmall{font-size:14px; color:var(--text-2); font-weight:700}
+.statSub{font-size:11px; color:var(--text-2); margin-top:5px}
+.miniRates{display:flex; flex-direction:column; gap:4px; font-size:13px; font-weight:700; margin-top:8px}
+
+.twoCol{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width:1100px){.twoCol{grid-template-columns:1fr}}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:18px; box-shadow:var(--shadow)}
+.cardTitle{font-weight:700; font-size:14px; margin-bottom:12px}
+.cardHead{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px}
+.cardHead .cardTitle{margin-bottom:0}
+
+.funnelRow{display:grid; grid-template-columns:110px 1fr 60px; align-items:center; gap:10px; margin-bottom:8px}
+.funnelLabel{font-size:11.5px; font-weight:700; color:#374151}
+.funnelBar{height:16px; background:#f3f4f6; border-radius:6px; overflow:hidden}
+.funnelBar div{height:100%; border-radius:6px; transition:width .4s}
+.funnelCount{font-size:12px; font-weight:800; text-align:right}
+.funnelNote{font-size:10.5px; color:var(--text-2); margin-top:12px; background:#f9fafb; border:1px solid var(--border); border-radius:8px; padding:10px; line-height:1.6}
+
+.countryRow{display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid #f3f4f6}
+.countryRow:last-child{border-bottom:0}
+.countryFlag{font-size:20px}
+.countryInfo{flex:1; min-width:0}
+.countryMeta{font-size:10.5px; color:var(--text-2); margin-top:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.linkBtn{border:none; background:none; color:var(--primary); font-weight:700; font-size:11px; cursor:pointer; padding:0}
+.linkBtn:hover{text-decoration:underline}
+
+.repliesPill{background:#dcfce7; color:#065f46; padding:2px 10px; border-radius:20px; font-size:11px; margin-left:8px}
+
+.tableScroll{overflow-x:auto}
+.table{width:100%; border-collapse:collapse; font-size:12px}
+.table th{text-align:left; padding:9px 12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-3); background:#f9fafb; border-bottom:1px solid var(--border); white-space:nowrap}
+.table td{padding:9px 12px; border-bottom:1px solid #f3f4f6; vertical-align:top}
+.tdSm{font-size:11px; font-weight:600}
+.tdXs{font-size:9.5px; color:var(--text-2)}
+.tdEllipsis{font-size:10.5px; color:var(--text-2); max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.leadYes{font-size:9px; color:#065f46; font-weight:700}
+
+.badge{padding:3px 8px; border-radius:20px; font-size:9.5px; font-weight:700; text-transform:uppercase}
+.badgePending{background:#fef3c7; color:#92400e}
+.badgeReplied{background:#dcfce7; color:#166534}
+
+.empty{padding:26px; text-align:center; color:var(--text-3); font-size:12px; line-height:1.7}

@@ -1,0 +1,114 @@
+.wrap{display:grid; gap:16px}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow)}
+.title{font-weight:700; font-size:14px}
+.sub{font-size:12px; color:var(--text-2); margin-top:2px; margin-bottom:14px}
+
+.totalBar{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:16px}
+.totalItem{background:#f9fafb; border:1px solid var(--border); border-radius:12px; padding:12px 14px}
+.totalLabel{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-3)}
+.totalValue{font-size:22px; font-weight:800; margin-top:3px}
+.totalNote{font-size:10px; color:#6b7280; margin-top:4px; line-height:1.5}
+
+.inboxGrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; margin-top:14px}
+.inboxCard{border:2px solid var(--border); border-radius:14px; padding:16px; transition:0.15s}
+.inboxTop{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
+.inboxName{font-weight:800; font-size:14px}
+.inboxEmail{font-size:12px; color:var(--text-2); margin-top:2px; font-weight:600}
+.inboxMeta{font-size:10px; color:#6b7280; margin-top:2px}
+.passWarn{font-size:10px; color:#991b1b; background:#fee2e2; padding:2px 6px; border-radius:4px; margin-top:4px; font-weight:700; display:inline-block}
+.inboxBadges{display:flex; gap:4px; flex-wrap:wrap; justify-content:flex-end}
+.statusActive{font-size:10px; font-weight:700; padding:3px 8px; border-radius:20px; background:#dcfce7; color:#065f46}
+.statusPaused{font-size:10px; font-weight:700; padding:3px 8px; border-radius:20px; background:#fee2e2; color:#991b1b}
+.apiBadge{font-size:10px; font-weight:700; padding:3px 8px; border-radius:20px; background:#e0e7ff; color:#4338ca}
+
+.pills{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px}
+.pill{font-size:10.5px; font-weight:700; padding:4px 10px; border-radius:20px; background:#f3f4f6; color:#374151}
+.pillGood{background:#dcfce7; color:#065f46}
+.pillWarn{background:#fef3c7; color:#92400e}
+.pillDanger{background:#fee2e2; color:#991b1b}
+
+.progress{height:7px; background:#eef2f3; border-radius:10px; margin-top:10px; overflow:hidden}
+.progressBar{height:100%; background:linear-gradient(90deg,#6366f1,#4f46e5); border-radius:10px; transition:width .4s}
+
+.customBox{background:#f9fafb; padding:10px 12px; border-radius:10px; border:1px solid #e5e7eb; margin-top:10px}
+.customTitle{font-size:10px; font-weight:700; color:#374151; margin-bottom:8px}
+.customGrid{display:grid; grid-template-columns:1fr 1fr auto; gap:6px; align-items:end}
+.miniLabel{font-size:9px; color:#6b7280; font-weight:600; display:block; margin-bottom:2px}
+.customInput{width:100%; padding:5px 8px; border-radius:6px; border:1px solid #d1d5db; font-size:12px; font-weight:600; outline:none; background:white}
+.miniNote{font-size:9px; color:#9ca3af; margin-top:2px}
+.saveBtnOn{padding:6px 12px; border-radius:6px; border:none; background:#4f46e5; color:white; font-size:10px; font-weight:700; cursor:pointer; height:30px}
+.saveBtnOff{padding:6px 12px; border-radius:6px; border:none; background:#e5e7eb; color:#9ca3af; font-size:10px; font-weight:700; cursor:not-allowed; height:30px}
+.quickRow{display:flex; gap:4px; margin-top:6px; flex-wrap:wrap; align-items:center}
+.quickBtn{padding:2px 6px; border-radius:4px; border:1px solid #e5e7eb; background:white; font-size:9px; cursor:pointer}
+.quickBtn:hover{background:#eef2ff}
+.quickBtnOn{padding:2px 6px; border-radius:4px; border:1px solid #4f46e5; background:#4f46e5; color:white; font-size:9px; font-weight:600; cursor:pointer}
+
+.pauseNote{background:#fee2e2; border:1px solid #fecaca; border-radius:8px; padding:6px 10px; margin-top:10px; font-size:10px; color:#991b1b; font-weight:600; line-height:1.5}
+.actions{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px}
+.btnSmall{padding:5px 10px; border-radius:6px; border:1px solid var(--border); background:white; font-size:11px; font-weight:600; cursor:pointer}
+.btnSmall:hover{background:#f9fafb}
+.btnDanger{border-color:#fecaca; background:#fee2e2; color:#991b1b}
+.btnResume{padding:5px 10px; border-radius:6px; border:none; background:#065f46; color:white; font-size:11px; font-weight:700; cursor:pointer}
+.emptyGrid{grid-column:1 / -1; text-align:center; padding:24px; color:#9ca3af; font-size:12px}
+
+/* Hostinger API card */
+.hgHead{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px}
+.hgSub{font-size:11.5px; color:#6b7280; margin-top:2px}
+.hgBadges{display:flex; gap:6px; flex-wrap:wrap}
+.keyOn{font-size:10px; font-weight:700; padding:4px 10px; border-radius:20px; background:#dcfce7; color:#065f46}
+.keyOff{font-size:10px; font-weight:700; padding:4px 10px; border-radius:20px; background:#f3f4f6; color:#6b7280}
+.keyWarn{font-size:10px; font-weight:700; padding:4px 10px; border-radius:20px; background:#fef3c7; color:#92400e}
+.hgForm{display:grid; gap:10px}
+.hgGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px}
+.hgBtns{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.hgBtnOutline{padding:10px 16px; border-radius:10px; border:1px solid #c7d2fe; background:white; font-size:12px; font-weight:700; cursor:pointer; color:#4338ca}
+.hgBtnOutline:hover{background:#eef2ff}
+.hgBtnSolid{padding:10px 16px; border-radius:10px; border:none; background:#4f46e5; color:white; font-size:12px; font-weight:700; cursor:pointer}
+.hgBtnSolid:hover{background:#4338ca}
+.hgWebhookUrl{font-size:11px; background:white; padding:8px 12px; border-radius:8px; border:1px dashed #c7d2fe; color:#4338ca}
+.hgWebhookUrl code{background:#eef2ff; padding:2px 6px; border-radius:4px}
+.hgWebhookNote{color:#6b7280}
+.hgMsgOk{font-size:11.5px; padding:8px 12px; border-radius:8px; white-space:pre-line; background:#dcfce7; color:#065f46}
+.hgMsgErr{font-size:11.5px; padding:8px 12px; border-radius:8px; white-space:pre-line; background:#fee2e2; color:#991b1b}
+.hgMsgBusy{font-size:11.5px; padding:8px 12px; border-radius:8px; white-space:pre-line; background:#f3f4f6; color:#374151}
+.hgSteps{margin-top:14px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; font-size:10.5px; color:#4338ca; line-height:1.6}
+.hgStep{background:white; padding:8px 10px; border-radius:8px; border:1px solid #e0e7ff}
+.hgFoot{margin-top:10px; font-size:10px; color:#6b7280}
+.hgFoot code{background:#eef2ff; padding:1px 5px; border-radius:4px}
+
+/* Info cards */
+.cardGreen{background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--radius-lg); padding:18px}
+.cardGreenTitle{font-weight:700; font-size:12px; color:#065f46}
+.cardGreenBody{font-size:11px; color:#047857; margin-top:6px; line-height:1.7}
+.cardRed{background:#fef2f2; border:1px solid #fecaca; border-radius:var(--radius-lg); padding:18px}
+.cardRedTitle{font-weight:700; font-size:12px; color:#991b1b}
+.cardRedBody{font-size:11px; color:#991b1b; margin-top:6px; line-height:1.7}
+.cardRedBody code,.cardGreenBody code{background:rgba(255,255,255,0.7); padding:1px 5px; border-radius:4px}
+
+/* Form */
+.formHead{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px}
+.cancelBtn{padding:6px 12px; border-radius:8px; border:1px solid #e5e7eb; background:white; font-size:11px; cursor:pointer}
+.formGrid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+@media (max-width:1000px){.formGrid{grid-template-columns:1fr}}
+.label{font-size:11px; font-weight:600; color:var(--text-2); display:block; margin-bottom:4px}
+.input{padding:9px 12px; border:1px solid var(--border); border-radius:10px; font-size:13px; width:100%; outline:none; background:white}
+.input:focus{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light)}
+.select{padding:9px 12px; border:1px solid var(--border); border-radius:10px; font-size:13px; width:100%; background:white; outline:none}
+.select:focus{border-color:var(--primary)}
+.btnPrimary{padding:11px 18px; border-radius:10px; border:none; background:var(--primary); color:white; font-weight:700; font-size:13px; cursor:pointer; width:100%}
+.btnPrimary:hover{background:var(--primary-2)}
+.btnPrimary:disabled{opacity:0.6; cursor:not-allowed}
+.formCol{display:grid; gap:10px}
+.formRow2{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.hostRow{display:flex; gap:6px}
+.presetRow{margin-top:10px; display:flex; gap:6px; flex-wrap:wrap}
+.presetBtn{padding:4px 8px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:10px; cursor:pointer}
+.presetBtn:hover{background:#eef2ff}
+.bulkDefaults{margin-top:14px; background:#f9fafb; padding:10px; border-radius:8px; border:1px solid #e5e7eb}
+.bulkDefaultGrid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px}
+.defaultInput{width:100%; padding:6px 8px; border-radius:6px; border:1px solid #d1d5db; font-size:12px; font-weight:700}
+.customPanel{background:#f0fdf4; padding:12px 14px; border-radius:10px; border:1px solid #bbf7d0}
+.customPanelTitle{font-size:11px; font-weight:700; color:#065f46; margin-bottom:10px}
+.customExample{font-size:10px; color:#065f46; margin-top:10px; background:white; padding:6px 8px; border-radius:6px; border:1px dashed #bbf7d0; line-height:1.5}
+.portNote{font-size:10px; margin-top:3px}
+.autoNote{font-size:10px; color:#6b7280; background:#f9fafb; padding:7px 9px; border-radius:6px; border:1px solid #e5e7eb; line-height:1.5}

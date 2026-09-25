@@ -1,0 +1,71 @@
+.wrap{display:grid; gap:16px}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow)}
+.header{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center}
+.title{font-weight:700; font-size:14px}
+.sub{font-size:12px; color:var(--text-2); margin-top:2px; line-height:1.5}
+.controls{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+
+.btnPrimary{padding:9px 14px; border-radius:10px; border:0; background:var(--primary); color:white; font-weight:600; font-size:12px; cursor:pointer; transition:0.2s; display:inline-flex; align-items:center; gap:6px}
+.btnPrimary:hover{background:var(--primary-2)}
+.btnIcon{padding:6px 10px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:11px; cursor:pointer}
+
+.select,.input{padding:8px 12px; border:1px solid var(--border); border-radius:10px; font-size:12px; background:white; outline:none}
+.select:focus,.input:focus{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light)}
+
+.countryChips{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.countryChip{background:#f0fdf4; border:1px solid #bbf7d0; padding:6px 10px; border-radius:8px; font-size:11px}
+
+.queueBox{background:linear-gradient(135deg,#eef2ff 0%,#f5f3ff 100%); border:1px solid #c7d2fe; border-radius:12px; padding:14px; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px}
+.queueItem{flex:1; min-width:140px}
+.queueLabel{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:#6366f1}
+.queueValue{font-size:18px; font-weight:800; margin-top:2px}
+.queueValueSm{font-size:12px; font-weight:700; margin-top:2px; line-height:1.4}
+
+.sectionTitle{font-weight:700; font-size:13px; margin-bottom:10px}
+.sectionTitleSm{font-weight:600; font-size:11px; margin-bottom:6px}
+.manualGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
+
+.tableHead{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px}
+.tableTitle{font-weight:600; font-size:12px}
+.tableFilters{display:flex; gap:6px; flex-wrap:wrap}
+
+.bulkBar{display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap; padding:8px; background:#f9fafb; border-radius:8px; border:1px solid #e5e7eb}
+.bulkLabel{display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; cursor:pointer; background:white; padding:5px 10px; border-radius:6px; border:1px solid #e5e7eb}
+.bulkBtn{padding:5px 10px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:10px; font-weight:600; cursor:pointer; color:#374151}
+.bulkBtn:disabled{opacity:0.4; cursor:not-allowed}
+.bulkDel{border-color:#fecaca; background:#fee2e2; color:#991b1b}
+.bulkGreen{border-color:#a7f3d0; background:#dcfce7; color:#065f46}
+.bulkYellow{border-color:#fde68a; background:#fef3c7; color:#92400e}
+.bulkBlue{border-color:#bfdbfe; background:#eff6ff; color:#1e40af}
+.bulkDelSolid{border-color:#fecaca; background:#991b1b; color:white}
+
+.tableScroll{max-height:600px; overflow:auto; border:1px solid var(--border); border-radius:10px}
+.table{width:100%; border-collapse:collapse; font-size:12px}
+.thead{position:sticky; top:0; background:white; z-index:1}
+.table th{text-align:left; padding:10px 12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-3); background:#f9fafb; border-bottom:1px solid var(--border); white-space:nowrap}
+.table td{padding:9px 12px; border-bottom:1px solid #f3f4f6; white-space:nowrap}
+.table tr:hover td{background:#fcfcff}
+.rowSel{background:#eef2ff !important}
+.rowUnsub{background:#fef2f2 !important}
+.td12{font-size:12px}
+.td11{font-size:11px}
+.td11b{font-size:11px; font-weight:600}
+.td10{font-size:10px}
+.tdEllip{font-size:11px; max-width:110px; overflow:hidden; text-overflow:ellipsis}
+.tdActions{display:flex; gap:3px}
+
+.miniBtn{padding:2px 5px; border-radius:4px; border:1px solid #e5e7eb; background:white; font-size:9px; cursor:pointer}
+.miniDel{border-color:#fecaca; background:#fee2e2}
+.subPillOn,.subPillOff{padding:2px 6px; border-radius:20px; border:1px solid; font-size:9px; font-weight:700; cursor:pointer}
+.subPillOn{border-color:#a7f3d0; background:#dcfce7; color:#065f46}
+.subPillOff{border-color:#fecaca; background:#fee2e2; color:#991b1b}
+
+.badge{padding:3px 8px; border-radius:20px; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.3px}
+.badgePending{background:#fef3c7; color:#92400e}
+.badgeSent{background:#dbeafe; color:#1e40af}
+.badgeBounced{background:#fee2e2; color:#991b1b}
+.badgeUnsub{background:#f1f5f9; color:#475569}
+
+.loadNote{padding:10px; text-align:center; font-size:11px; color:#6b7280}
+.empty{padding:24px; text-align:center; color:#9ca3af; font-size:11px}
+.codeBlock{background:#0f172a; color:#e2e8f0; padding:14px; border-radius:10px; font-size:11px; overflow:auto; font-family:ui-monospace,monospace; line-height:1.7; white-space:pre-wrap}

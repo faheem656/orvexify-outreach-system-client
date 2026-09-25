@@ -1,0 +1,161 @@
+.wrap{display:grid; gap:16px}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow)}
+.cardHead{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px}
+.cardTitle{font-weight:700; font-size:13px}
+.cardSub{font-size:11px; color:var(--text-2); margin-top:2px; line-height:1.5}
+.cardHead .cardTitle{margin-bottom:0}
+.controls{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.select,.input{padding:8px 12px; border:1px solid var(--border); border-radius:10px; font-size:12px; background:white; outline:none}
+.select:focus,.input:focus{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light)}
+.btnGhost{padding:8px 12px; border-radius:10px; border:1px solid var(--border); background:white; font-weight:600; font-size:12px; cursor:pointer; color:var(--text-2)}
+.btnGhost:hover{background:#f9fafb}
+
+/* Auto-send card */
+.autoCardOn{background:#dcfce7; border:1px solid #86efac; border-radius:var(--radius-lg); padding:18px}
+.autoCardOff{background:#fee2e2; border:1px solid #fecaca; border-radius:var(--radius-lg); padding:18px}
+.autoHead{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.autoTitle{font-weight:700; font-size:13px}
+.autoMeta{font-size:11px; margin-top:5px; line-height:1.7; color:#374151}
+.autoBtns{display:flex; gap:8px; flex-direction:column}
+.autoBtnRed{padding:8px 14px; border-radius:8px; background:#dc2626; color:white; border:none; font-weight:700; font-size:11px; cursor:pointer}
+.autoBtnGreen{padding:8px 14px; border-radius:8px; background:#065f46; color:white; border:none; font-weight:700; font-size:12px; cursor:pointer}
+.autoBtnPurple{padding:8px 14px; border-radius:8px; background:#7c3aed; color:white; border:none; font-weight:700; font-size:11px; cursor:pointer}
+.autoBtnOrange{padding:8px 14px; border-radius:8px; background:#ea580c; color:white; border:none; font-weight:700; font-size:11px; cursor:pointer}
+.autoBtnWhite{padding:6px 12px; border-radius:8px; background:white; border:1px solid #e5e7eb; font-size:11px; cursor:pointer}
+.autoBtns button:disabled{opacity:0.6; cursor:not-allowed}
+
+.diagOk{margin-top:14px; background:#dcfce7; border:1px solid #86efac; padding:14px; border-radius:10px}
+.diagBad{margin-top:14px; background:#fee2e2; border:1px solid #fecaca; padding:14px; border-radius:10px}
+.diagSummary{font-weight:800; font-size:13px}
+.diagBlock{margin-top:10px}
+.diagIssuesTitle{font-weight:700; font-size:11px; color:#991b1b}
+.diagFixesTitle{font-weight:700; font-size:11px; color:#065f46}
+.diagIssue{font-size:11px; margin-top:4px; background:white; padding:6px 10px; border-radius:6px; border:1px solid #fecaca; line-height:1.5}
+.diagFix{font-size:11px; margin-top:4px; background:white; padding:6px 10px; border-radius:6px; border:1px solid #86efac; line-height:1.5}
+.diagDetails{margin-top:10px}
+.diagSummaryBtn{font-size:11px; font-weight:700; cursor:pointer}
+.diagPre{font-size:10px; background:white; padding:10px; border-radius:6px; overflow:auto; max-height:300; margin-top:8px}
+.closeSm{margin-top:10px; padding:4px 10px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:10px; cursor:pointer}
+.forceMsg{font-weight:800; font-size:12px}
+.forceBox{font-size:11px; margin-top:8px; background:white; padding:10px; border-radius:8px; line-height:1.7; word-break:break-word}
+.forceOk{margin-top:6px; color:#065f46}
+.forceErr{margin-top:6px; color:#991b1b}
+.checklist{margin-top:12px; font-size:10px; background:white; padding:8px 10px; border-radius:6px; border:1px solid #e5e7eb; line-height:1.7}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px}
+.statCard{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; box-shadow:var(--shadow)}
+.statLabel{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--text-3)}
+.statValue{font-size:24px; font-weight:800; margin-top:6px}
+.statValueSmall{font-size:14px; color:var(--text-2); font-weight:700}
+.statSub{font-size:11px; color:var(--text-2); margin-top:5px}
+.miniRates{display:flex; flex-direction:column; gap:4px; font-size:12.5px; font-weight:700; margin-top:8px; line-height:1.5}
+
+/* Funnel */
+.funnelTag{font-size:10px; color:#6b7280; background:#f9fafb; padding:3px 8px; border-radius:20px; border:1px solid #e5e7eb}
+.funnelCol{display:grid; gap:8px}
+.funnelRow{display:grid; grid-template-columns:90px 1fr 130px; align-items:center; gap:10px}
+.funnelLabel{font-size:11px; font-weight:700; color:#374151}
+.funnelBar{height:18px; background:#f3f4f6; border-radius:6px; overflow:hidden}
+.funnelBar div{height:100%; border-radius:6px; transition:width .4s}
+.funnelCount{font-size:11px; font-weight:700; text-align:right}
+.funnelRate{color:#9ca3af; font-weight:500}
+.funnelNote{font-size:10px; color:#6b7280; margin-top:12px; line-height:1.6; background:#f9fafb; border:1px solid var(--border); border-radius:8px; padding:10px}
+
+.repliesPill{background:#dcfce7; color:#065f46; padding:2px 10px; border-radius:20px; font-size:11px; font-weight:700; margin-left:6px}
+
+/* Status tabs */
+.statusTabs{display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap}
+.tab,.tabActive{padding:6px 12px; border-radius:8px; border:1px solid var(--border); background:white; font-size:11px; font-weight:600; cursor:pointer; text-transform:capitalize}
+.tabActive{background:var(--text); color:white; border-color:var(--text)}
+
+.tableOuter{margin-top:12px; max-height:650px; overflow-y:auto; border:1px solid var(--border); border-radius:10px}
+.tableScroll{overflow-x:auto}
+.table{width:100%; border-collapse:collapse; font-size:12px}
+.thead{position:sticky; top:0; z-index:1}
+.table th{text-align:left; padding:10px 12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-3); background:#f9fafb; border-bottom:1px solid var(--border); white-space:nowrap}
+.table td{padding:9px 12px; border-bottom:1px solid #f3f4f6; vertical-align:top}
+.table tr:hover td{background:#fcfcff}
+.rowUnsub{background:#fef2f2 !important}
+.tdName{font-weight:600; font-size:11px; white-space:nowrap}
+.tdSm{font-size:11px; white-space:nowrap}
+.tdXs{font-size:10px; color:#6b7280}
+.tdCountry{font-size:11px; font-weight:700; white-space:nowrap}
+.tdEllipsis{font-size:11px; max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.leadYes{font-size:9px; color:#065f46; font-weight:700}
+.subPillOn,.subPillOff{padding:2px 6px; border-radius:20px; font-size:9px; font-weight:700; white-space:nowrap}
+.subPillOn{background:#dcfce7; color:#065f46}
+.subPillOff{background:#fee2e2; color:#991b1b}
+
+.badge{padding:3px 8px; border-radius:20px; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.3px; white-space:nowrap}
+.badgePending{background:#fef3c7; color:#92400e}
+.badgeSent{background:#dbeafe; color:#1e40af}
+.badgeOpened{background:#e0e7ff; color:#4338ca}
+.badgeClicked{background:#f3e8ff; color:#6b21a8}
+.badgeReplied{background:#dcfce7; color:#166534}
+.badgeBounced{background:#fee2e2; color:#991b1b}
+.badgeUnsub{background:#f1f5f9; color:#475569}
+.badgeFailed{background:#ffedd5; color:#9a3412}
+
+.loadNote{padding:12px; text-align:center; font-size:12px; color:#6b7280}
+.empty{padding:26px; text-align:center; color:#9ca3af; font-size:12px; line-height:1.8}
+
+/* Modal */
+.modalOverlay{position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px}
+.modal{background:white; border-radius:16px; max-width:720px; width:100%; max-height:90vh; overflow-y:auto; padding:24px; box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modalHead{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:10px}
+.modalTitle{font-weight:700; font-size:16px}
+.modalClose{padding:6px 12px; border-radius:8px; border:1px solid #e5e7eb; background:white; cursor:pointer}
+.modalBody{display:grid; gap:16px}
+.detailGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px}
+.detailTile{background:#f9fafb; padding:12px; border-radius:10px; border:1px solid #e5e7eb}
+.detailLabel{font-size:10px; color:#6b7280; font-weight:600}
+.detailValue{font-weight:700; font-size:13px; margin-top:4px; word-break:break-all}
+.detailValueSm{font-weight:600; font-size:13px; margin-top:4px}
+
+.senderBoxOk{background:#dcfce7; border:1px solid #86efac; padding:14px; border-radius:12px}
+.senderBoxWarn{background:#fef3c7; border:1px solid #fde68a; padding:14px; border-radius:12px}
+.senderBoxTitle{font-weight:700; font-size:12px}
+.senderBoxMeta{margin-top:8px; font-size:12px; line-height:1.7}
+.senderBoxOkText{margin-top:6px; color:#065f46; font-weight:600}
+
+.statRow{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+.statTile{background:white; border:1px solid #e5e7eb; padding:10px; border-radius:8px; text-align:center}
+.statTileValue{font-size:20px; font-weight:800}
+.statTileValueSm{font-size:12px; font-weight:700}
+
+.historyBox{background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px}
+.historyTitle{font-weight:700; font-size:12px; margin-bottom:8px}
+.historyRow{background:white; border:1px solid #e5e7eb; border-radius:8px; padding:8px 10px; margin-top:6px; font-size:11px; display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.historyTime{color:#6b7280; font-size:10px; white-space:nowrap}
+.historySender{color:#374151; font-size:10px}
+.historyError{width:100%; font-size:10px; color:#991b1b; margin-top:4px; word-break:break-word}
+
+.renderedBox{background:#eef2ff; padding:14px; border-radius:10px; border:1px solid #c7d2fe}
+.renderedTitle{font-weight:700; font-size:12px; color:#4338ca}
+.renderedSubject{margin-top:8px; font-size:12px}
+.renderedBody{margin-top:8px; font-size:12px; white-space:pre-wrap; background:white; padding:10px; border-radius:8px; border:1px solid #e5e7eb; max-height:300px; overflow-y:auto}
+
+.bounceBox{background:#fee2e2; padding:12px; border-radius:10px; border:1px solid #fecaca}
+.bounceTitle{font-weight:700; font-size:11px; color:#991b1b}
+.bounceText{font-size:11px; margin-top:4px; color:#991b1b; word-break:break-word}
+
+.eventsBox{background:#f9fafb; padding:14px; border-radius:10px; border:1px solid #e5e7eb}
+.eventsTitle{font-weight:700; font-size:12px}
+.eventsEmpty{font-size:11px; color:#9ca3af; margin-top:8px}
+.eventRow{display:flex; gap:10px; margin-top:8px; font-size:11px; background:white; padding:8px 10px; border-radius:8px; border:1px solid #e5e7eb; align-items:center; flex-wrap:wrap}
+.eventType{font-weight:700; text-transform:uppercase}
+.eventTime{color:#6b7280; white-space:nowrap}
+.eventMeta{flex:1; overflow:hidden; text-overflow:ellipsis; font-size:10px}
+
+.clicksBox{background:#f5f3ff; padding:12px; border-radius:10px; border:1px solid #ddd6fe}
+.clicksTitle{font-weight:700; font-size:11px}
+.clickRow{font-size:11px; margin-top:6px; background:white; padding:6px 10px; border-radius:6px}
+.clickUrl{font-weight:600; word-break:break-all}
+
+.modalActions{display:flex; gap:8px; flex-wrap:wrap}
+.actionYellow,.actionGreen,.actionBlue,.actionWhite{padding:8px 14px; border-radius:8px; font-weight:600; font-size:11px; cursor:pointer}
+.actionYellow{border:1px solid #fde68a; background:#fef3c7}
+.actionGreen{border:1px solid #a7f3d0; background:#dcfce7}
+.actionBlue{border:1px solid #bfdbfe; background:#eff6ff}
+.actionWhite{border:1px solid #e5e7eb; background:white}
+.modalFoot{font-size:10px; color:#9ca3af; line-height:1.6}

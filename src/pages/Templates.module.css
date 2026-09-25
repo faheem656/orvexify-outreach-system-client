@@ -1,0 +1,106 @@
+.wrap{display:grid; gap:16px}
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow)}
+.title{font-weight:700; font-size:14px}
+.sub{font-size:12px; color:var(--text-2); margin-top:2px; line-height:1.5}
+
+.presetGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:14px}
+.presetCard{background:white; border:2px solid #e5e7eb; border-radius:12px; padding:14px; cursor:pointer; transition:all 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.presetCard:hover{border-color:#4f46e5}
+.presetName{font-weight:800; font-size:13px; margin-bottom:6px}
+.presetSub{font-size:11px; color:#6b7280; margin-bottom:8px; line-height:1.4}
+.presetUse{font-size:10px; background:#eef2ff; color:#4338ca; padding:4px 8px; border-radius:20px; display:inline-block; font-weight:700}
+
+.seedRow{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.seedBtn{padding:8px 16px; border-radius:8px; border:none; background:#4f46e5; color:white; font-weight:700; font-size:12px; cursor:pointer}
+.seedBtn:hover{background:#4338ca}
+.seedNote{font-size:11px; color:#6b7280}
+.seedInfo{margin-top:12px; background:white; padding:10px 14px; border-radius:8px; border:1px dashed #a5b4fc; font-size:11px; color:#4338ca; line-height:1.7}
+
+.formHead{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px}
+.newBtn{padding:8px 14px; border-radius:8px; border:1px solid #e5e7eb; background:white; font-weight:600; font-size:12px; cursor:pointer}
+.newBtn:hover{background:#f9fafb}
+
+.form{display:grid; gap:16px; margin-top:14px}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.label{font-size:11px; font-weight:600; color:var(--text-2); display:block; margin-bottom:4px}
+.input{padding:9px 12px; border:1px solid var(--border); border-radius:10px; font-size:13px; width:100%; outline:none; background:white}
+.input:focus{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light)}
+.textarea{padding:10px 12px; border:1px solid var(--border); border-radius:10px; font-size:12px; width:100%; outline:none; min-height:90px; resize:vertical; background:white}
+.textarea:focus{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-light)}
+.capBox{font-size:12px; background:#eef2ff; padding:8px 12px; border-radius:8px; border:1px solid #c7d2fe; color:#4338ca}
+.capOk{font-size:12px; background:#dcfce7; padding:8px 12px; border-radius:8px; border:1px solid #86efac; color:#065f46}
+
+.inboxSelector{display:grid; gap:8px; margin-top:4px}
+.inboxOption,.inboxOptionSel{display:flex; align-items:center; gap:10px; border:1.5px solid #e5e7eb; border-radius:10px; padding:10px 12px; cursor:pointer; transition:0.15s; background:white}
+.inboxOptionSel{border-color:#4f46e5; background:#eef2ff}
+.check,.checkSel{width:20px; height:20px; border-radius:6px; border:2px solid #d1d5db; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:white; flex-shrink:0}
+.checkSel{background:#4f46e5; border-color:#4f46e5}
+.optBody{flex:1; min-width:0}
+.optName{font-weight:600; font-size:12.5px}
+.optMeta{font-size:11px; color:#6b7280; margin-top:1px}
+.optBadgeOn{font-size:11px; font-weight:700; background:#4f46e5; color:white; padding:3px 8px; border-radius:20px}
+.optBadgeOff{font-size:11px; font-weight:700; background:#f3f4f6; color:#6b7280; padding:3px 8px; border-radius:20px}
+.emptyOpt{font-size:12px; color:#9ca3af; text-align:center; padding:10px}
+
+.initialBox{background:#f9fafb; padding:14px; border-radius:12px; border:1px solid #e5e7eb}
+.initialHead{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px}
+.initialTitle{font-weight:700; font-size:13px}
+.previewBtns{display:flex; gap:6px}
+.previewBtn,.previewBtnOn{padding:4px 10px; border-radius:6px; border:1px solid; font-size:11px; font-weight:600; cursor:pointer}
+.previewBtn{border-color:#e5e7eb; background:white; color:#6b7280}
+.previewBtnOn{border-color:#4f46e5; background:#4f46e5; color:white}
+.initialCol{display:grid; gap:10px}
+
+.previewBox{background:white; border-radius:12px; border:1px solid #e5e7eb; overflow:hidden}
+.previewHead{padding:10px 14px; background:#f9fafb; border-bottom:1px solid #e5e7eb; display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap}
+.previewTitle{font-size:11px; font-weight:700; color:#111827}
+.previewMode{font-size:10px; color:#6b7280}
+.previewBody{padding:0}
+.previewBodyPad{padding:12px}
+.previewHtmlScroll{max-height:500px; overflow:auto; background:#f4f5f7}
+.previewSubject{font-size:12px; background:#eef2ff; padding:8px 10px; border-radius:6px; margin-bottom:8px}
+.previewText{font-size:12px; white-space:pre-wrap; background:#f9fafb; padding:12px; border-radius:6px; border:1px solid #e5e7eb; line-height:1.6}
+.previewFoot{padding:8px 14px; background:#f9fafb; border-top:1px solid #e5e7eb; font-size:10px; color:#6b7280; line-height:1.6}
+
+.step{border:1px solid var(--border); border-radius:12px; padding:14px; background:white}
+.stepHead{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.stepTitle{font-weight:700; font-size:13px}
+.stepBadge{font-size:10px; background:#f3f4f6; color:#6b7280; padding:2px 8px; border-radius:20px; margin-left:6px; font-weight:600}
+.conditionRow{display:flex; align-items:center; gap:6px}
+.condLabel{font-size:10px; font-weight:700; color:#9ca3af}
+.condSelect{width:150px; padding:5px 8px; font-size:12px; border:1px solid var(--border); border-radius:8px; background:white}
+.condSelectSm{width:80px; padding:5px 8px; font-size:12px; border:1px solid var(--border); border-radius:8px; background:white}
+.stepCol{display:grid; gap:8px}
+
+.submitBtn{padding:12px 20px; border-radius:10px; border:none; background:var(--primary); color:white; font-weight:700; font-size:13px; cursor:pointer}
+.submitBtn:hover{background:var(--primary-2)}
+
+.debugCard{background:#fef2f2; border:1px solid #fecaca; border-radius:var(--radius-lg); padding:18px}
+.debugTitle{font-weight:700; font-size:13px; color:#991b1b}
+.debugGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:10px}
+.debugTile{background:white; padding:10px; border-radius:8px; border:1px solid #fecaca}
+.debugTileLabel{font-size:11px; color:#6b7280}
+.debugTileValue{font-weight:700; font-size:18px; margin-top:2px}
+.debugSection{margin-top:12px}
+.debugSectionTitle{font-weight:600; font-size:12px; margin-bottom:6px}
+.debugSender{font-size:11px; background:white; padding:6px 10px; border-radius:6px; margin-top:4px; border:1px solid #e5e7eb; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap}
+.debugHints{font-size:11px; margin:4px 0 0 16px; color:#991b1b; line-height:1.7}
+.debugPre{font-size:10px; background:white; padding:10px; border-radius:6px; overflow:auto; max-height:260px}
+.closeBtn{margin-top:10px; padding:6px 12px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:11px; cursor:pointer}
+
+.existingTitle{font-weight:600; font-size:13px; margin-bottom:10px}
+.existingList{display:grid; gap:10px}
+.existingItem,.existingItemActive{border:1.5px solid var(--border); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:10px}
+.existingItemActive{border-color:#6366f1; background:#fafaff}
+.existingHead{display:flex; justify-content:space-between; cursor:pointer; gap:8px; flex-wrap:wrap}
+.existingName{font-weight:600; font-size:13px}
+.existingMeta{font-size:11px; color:#6b7280; margin-top:2px}
+.existingDate{font-size:11px; color:#6b7280}
+.existingActions{display:flex; gap:6px; flex-wrap:wrap}
+.xBtn{padding:5px 10px; border-radius:6px; border:1px solid #e5e7eb; background:white; font-size:11px; font-weight:600; cursor:pointer}
+.xBtn:hover{background:#f9fafb}
+.xBtnYellow{padding:5px 10px; border-radius:6px; border:1px solid #fbbf24; background:#fef3c7; font-size:11px; font-weight:600; cursor:pointer; color:#92400e}
+.xBtnBlue{padding:5px 10px; border-radius:6px; border:1px solid #bfdbfe; background:#eff6ff; font-size:11px; font-weight:600; cursor:pointer; color:#1e40af}
+.xBtnGreen{padding:5px 10px; border-radius:6px; border:1px solid #a7f3d0; background:#dcfce7; font-size:11px; font-weight:600; cursor:pointer; color:#065f46}
+.xBtnRed{padding:5px 10px; border-radius:6px; border:1px solid #fecaca; background:#fee2e2; font-size:11px; font-weight:600; cursor:pointer; color:#991b1b}

@@ -1,0 +1,53 @@
+.shell{display:flex; min-height:100vh}
+
+/* ---------- Sidebar ---------- */
+.sidebar{
+  width:232px; flex-shrink:0; background:#111827; color:#e5e7eb;
+  display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+  border-right:1px solid #1f2937;
+}
+.logo{display:flex; gap:10px; align-items:center; padding:18px 16px; border-bottom:1px solid #1f2937}
+.logoIcon{
+  width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,#6366f1,#4f46e5);
+  display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; color:white;
+}
+.logoTitle{font-weight:800; font-size:14px; color:white}
+.logoSub{font-size:10px; color:#9ca3af; margin-top:1px}
+
+.nav{display:flex; flex-direction:column; gap:3px; padding:14px 10px; flex:1}
+.navItem{
+  display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px;
+  color:#9ca3af; text-decoration:none; font-size:13px; font-weight:600; transition:0.15s;
+}
+.navItem:hover{background:#1f2937; color:white}
+.navActive{background:#4f46e5 !important; color:white !important}
+.navIcon{font-size:16px; width:20px; text-align:center}
+
+.sideFoot{
+  display:flex; align-items:center; gap:8px; padding:14px 16px; border-top:1px solid #1f2937;
+  font-size:11px; color:#9ca3af;
+}
+.statusDot{width:8px; height:8px; border-radius:50%}
+
+/* ---------- Main ---------- */
+.main{flex:1; display:flex; flex-direction:column; min-width:0}
+.topbar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:14px 24px; background:var(--card); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:50;
+}
+.topLeft{display:flex; align-items:center; gap:8px}
+.dot{width:9px; height:9px; border-radius:50%; flex-shrink:0}
+.topText{font-size:12.5px; font-weight:600; color:var(--text)}
+.topRight{display:flex; gap:6px; flex-wrap:wrap}
+.pillBlue{background:var(--primary-light); color:var(--primary-2); padding:3px 10px; border-radius:20px; font-weight:700; font-size:11px}
+.pillRed{background:#fee2e2; color:#991b1b; padding:3px 10px; border-radius:20px; font-weight:700; font-size:11px}
+.pillGreen{background:#dcfce7; color:#065f46; padding:3px 10px; border-radius:20px; font-weight:700; font-size:11px}
+
+.content{padding:24px; flex:1}
+
+@media (max-width: 900px) {
+  .shell{flex-direction:column}
+  .sidebar{width:100%; height:auto; position:static}
+  .nav{flex-direction:row; flex-wrap:wrap}
+}
