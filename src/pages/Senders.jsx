@@ -70,7 +70,11 @@ export default function Senders() {
   const setupWebhook = async () => {
     setHgMsg({ type: 'busy', text: 'Creating webhooks on all linked mailboxes...' })
     const data = await fetch(apiUrl('/api/hostinger/setup-webhook'), { method: 'POST' }).then(r => r.json()).catch(() => ({ ok: false, error: 'Network error' }))
-    if (data.ok) { setHgMsg({ type: 'ok', text: `✅ ${data.note}\nWebhook URL: ${data.webhookUrl}` }); fetchHgSettings() }
+    if (data.ok) {
+      const detail = (data.results || []).map(r => `   ${r.ok ? '✅' : '❌'} ${r.mailbox} — ${r.action || ''}${r.duplicatesCleaned ? ` (${r.duplicatesCleaned} duplicate removed)` : ''}${r.secret && r.secret !== 'saved' ? ' ⚠️ ' + r.secret : ''}`).join('\n')
+      setHgMsg({ type: 'ok', text: `✅ ${data.note}\n${detail}\nWebhook URL: ${data.webhookUrl}` })
+      fetchHgSettings()
+    }
     else setHgMsg({ type: 'err', text: '❌ ' + data.error })
   }
 
@@ -309,7 +313,7 @@ export default function Senders() {
 
         <div className={s.hgSteps}>
           <div className={s.hgStep}><b>1️⃣ API Key</b><br />Panel → Developers → API keys → Create token (selected mailboxes) → paste → Save. Sender emails auto-link ho jayenge (🔌 API badge).</div>
-          <div className={s.hgStep}><b>2️⃣ Webhook</b><br />"1-Click Webhook Setup" → saare mailboxes pe webhook. Reply = lead replied, bounce = bounced.</div>
+          <div className={s.hgStep}><b>2️⃣ Webhook</b><br />"1-Click Webhook Setup" → har mailbox pe <b>sirf 1 webhook</b> (purane duplicates khud delete + secrets auto-save/regenerate). Reply aate hi dashboard me dikhega.</div>
           <div className={s.hgStep}><b>3️⃣ Auto-Pause</b><br />Koi sender {hgSettings?.bounce_pause_threshold || 3}+ bounces/ghanta de to auto-pause (domain protect). Resume button se wapas.</div>
         </div>
         <div className={s.hgFoot}>ℹ️ Hostinger abhi <code>message.received</code> event deta hai (replies). Bounce/delivery events future me add honge — system ready hai (auto-pause abhi SMTP bounces se bhi kaam karta hai).</div>

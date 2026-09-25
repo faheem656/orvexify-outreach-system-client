@@ -4,7 +4,7 @@ export async function fetchJson(url, options) {
     const text = await res.text();
     // If response is HTML (starts with <!doctype or <html), it's likely server not running or proxy miss
     if (text.trim().startsWith('<!doctype') || text.trim().startsWith('<html') || text.trim().startsWith('<HTML')) {
-      throw new Error(`API returned HTML instead of JSON for ${url}. Is server running on saddlebrown-ape-891436.hostingersite.com? Run 'npm run dev' in server folder.`);
+      throw new Error(`API returned HTML instead of JSON for ${url}. Is server running on http://localhost:4000? Run 'npm run dev' in server folder.`);
     }
     try {
       return JSON.parse(text);

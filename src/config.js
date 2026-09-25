@@ -13,7 +13,7 @@ function detectApiBase() {
   return isLocal ? 'http://localhost:4000' : PROD_API;
 }
 
-export const API_BASE = "https://saddlebrown-ape-891436.hostingersite.com";
+export const API_BASE = detectApiBase();
 
 // Helper to build API URL
 export const apiUrl = (path) => {

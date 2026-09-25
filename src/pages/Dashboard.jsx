@@ -133,7 +133,9 @@ export default function Dashboard() {
             </div>
           ))}
           <div className={s.funnelNote}>
-            💡 Bounce rate {bounceRate}% — 2% se neeche rakhna zaroori hai orvexify.com reputation ke liye. 3+ bounces/hr = sender auto-pause.
+            💡 <b>Opened</b> = jis ne email kam se kam 1 baar kholi (click ki ho ya nahi) — yeh number <b>live badhta jata hai</b> jab log emails kholte hain.
+            Reports ke chips alag slice hain: <b>opened</b> = kholi par click nahi, <b>clicked</b> = link click kiya (kuch leads seedha link kholti hain bina open pixel ke — is liye chips ka hisab thoda alag ho sakta hai).
+            <br />Bounce rate {bounceRate}% — 2% se neeche rakhna zaroori hai orvexify.com reputation ke liye. 3+ bounces/hr = sender auto-pause.
             Har email ka poora hisab <b>📋 Email Log</b> page me hai (bounce/reject reason + open/click + sender + template + step).
           </div>
         </div>

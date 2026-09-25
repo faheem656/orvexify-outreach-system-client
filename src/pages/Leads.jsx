@@ -92,7 +92,17 @@ export default function Leads() {
       if (text.trim().startsWith('<!doctype') || text.trim().startsWith('<html')) { alert('❌ Server not running!'); setUploading(false); return }
       const data = JSON.parse(text); setUploading(false)
       if (data.inserted !== undefined) {
-        alert(`✅ ${data.inserted} leads added with Country+Timezone!\n${data.skipped} skipped duplicate\n${data.unsubSkipped || 0} skipped global unsub`)
+        const lines = [`✅ ${data.inserted} leads added with Country+Timezone! (file rows: ${data.total})`]
+        if (data.duplicatesRemoved > 0) {
+          lines.push(`🔄 ${data.duplicatesRemoved} duplicates removed:`)
+          if (data.dupInBatch > 0) lines.push(`   • ${data.dupInBatch} file me repeat thi`)
+          if (data.dupInDb > 0) lines.push(`   • ${data.dupInDb} pehle se DB me thi (kisi bhi template me)`)
+        } else {
+          lines.push(`🔄 0 duplicates — sab clean ✅`)
+        }
+        if (data.invalid > 0) lines.push(`❌ ${data.invalid} invalid email (nikal gayi)`)
+        if (data.unsubSkipped > 0) lines.push(`⚠️ ${data.unsubSkipped} global unsub list me thi (skip)`)
+        alert(lines.join('\n'))
         setPage(0); fetchLeads(0, false); refresh()
       } else alert('❌ ' + data.error)
     } catch (err) { setUploading(false); alert('❌ ' + err.message) }
