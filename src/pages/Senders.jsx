@@ -78,6 +78,27 @@ export default function Senders() {
     else setHgMsg({ type: 'err', text: '❌ ' + data.error })
   }
 
+  const debugWebhooks = async () => {
+    setHgMsg({ type: 'busy', text: 'Fetching live webhook status from Hostinger...' })
+    const data = await fetch(apiUrl('/api/hostinger/debug')).then(r => r.json()).catch(() => ({ ok: false, error: 'Network error' }))
+    if (data.ok) {
+      const lines = [
+        ` DEBUG — ${data.totalMailboxes} mailboxes, ${data.totalWebhooks} webhooks total (our name: ${data.ourWebhooks})`,
+        `💾 Saved secrets: ${data.savedSecretCount} → ${data.savedSecretFingerprints.join(', ') || '(koi nahi!)'}`,
+        `📡 Webhook URL: ${data.webhookUrl}`,
+        '',
+        ...data.mailboxes.map(m => {
+          const hooks = (m.webhooks || []).filter(w => !w.error).map(w => `${w.isOurs ? '⭐' : '•'} ${w.name} [${w.status}] ${w.id}`)
+          const tag = m.isSender ? ' 📤 sender' : ' (sender nahi — webhook yahan nahi chahiye)'
+          return `📬 ${m.mailbox}${tag} — ${m.webhookCount} webhook(s):\n${hooks.length ? hooks.map(h => '    ' + h).join('\n') : '    (koi webhook nahi)'}`
+        }),
+        '',
+        data.note,
+      ]
+      setHgMsg({ type: data.savedSecretCount >= Math.max(1, data.ourWebhooks || 1) ? 'ok' : 'err', text: lines.join('\n') })
+    } else setHgMsg({ type: 'err', text: '❌ ' + data.error })
+  }
+
   const resumeSender = async (id) => {
     await fetch(apiUrl(`/api/senders/${id}`), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ auto_paused_at: null }) })
     fetchSenders()
@@ -301,6 +322,7 @@ export default function Senders() {
             <button type="submit" className={s.btnPrimary}>💾 Save Hostinger Settings</button>
             <button type="button" onClick={testHg} className={s.hgBtnOutline}>🔍 Test API + Auto-Link Senders</button>
             <button type="button" onClick={setupWebhook} className={s.hgBtnSolid}>⚡ 1-Click Webhook Setup</button>
+            <button type="button" onClick={debugWebhooks} className={s.hgBtnOutline}>🐞 Debug Webhooks (live)</button>
           </div>
           {hgSettings?.webhook_url && (
             <div className={s.hgWebhookUrl}>
@@ -313,7 +335,7 @@ export default function Senders() {
 
         <div className={s.hgSteps}>
           <div className={s.hgStep}><b>1️⃣ API Key</b><br />Panel → Developers → API keys → Create token (selected mailboxes) → paste → Save. Sender emails auto-link ho jayenge (🔌 API badge).</div>
-          <div className={s.hgStep}><b>2️⃣ Webhook</b><br />"1-Click Webhook Setup" → har mailbox pe <b>sirf 1 webhook</b> (purane duplicates khud delete + secrets auto-save/regenerate). Reply aate hi dashboard me dikhega.</div>
+          <div className={s.hgStep}><b>2️⃣ Webhook</b><br />"1-Click Webhook Setup" → <b>saare purane webhooks delete</b> + har sender mailbox pe <b>1 fresh webhook</b> (secrets auto-save). Reply aate hi dashboard me dikhega.</div>
           <div className={s.hgStep}><b>3️⃣ Auto-Pause</b><br />Koi sender {hgSettings?.bounce_pause_threshold || 3}+ bounces/ghanta de to auto-pause (domain protect). Resume button se wapas.</div>
         </div>
         <div className={s.hgFoot}>ℹ️ Hostinger abhi <code>message.received</code> event deta hai (replies). Bounce/delivery events future me add honge — system ready hai (auto-pause abhi SMTP bounces se bhi kaam karta hai).</div>
